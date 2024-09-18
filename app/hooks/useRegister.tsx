@@ -1,6 +1,5 @@
 import pb from "../lib/pocketbase"
 import { useMutation } from "react-query"
-import adminAuth from "../lib/adminauth";
 
 export default function useRegister() {
     async function register({ email, password }: any) {
@@ -12,8 +11,7 @@ export default function useRegister() {
             "passwordConfirm": password
 
         }; 
-        adminAuth();
-        const record = await pb.collection("users").create(data);
+        const record = await pb.collection("users").create(data, );
         
     }
 
