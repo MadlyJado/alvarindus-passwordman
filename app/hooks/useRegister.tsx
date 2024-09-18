@@ -12,7 +12,7 @@ export default function useRegister() {
             "passwordConfirm": password
 
         }; 
-
+        adminAuth();
         const record = await pb.collection("users").create(data);
         
     }
