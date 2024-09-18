@@ -15,7 +15,6 @@ export default function useRegister() {
 
 
         }; 
-        adminAuth();
 
         const record = await pb.collection("users").create(data);
     }
