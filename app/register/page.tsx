@@ -15,4 +15,4 @@ const page: NextPage<Props> = ({}) => {
   )
 }
 
-export default Register
+export default page
