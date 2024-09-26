@@ -11,7 +11,7 @@ export default function useRegister() {
             "passwordConfirm": password
 
         }; 
-        const record = await pb.collection("users").create(data, );
+        const record = await pb.collection("users").create(data);
         
     }
 

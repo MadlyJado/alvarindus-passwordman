@@ -15,12 +15,13 @@ function EmailAndPass(props: any) {
   const logout = useLogout();
   const {mutate: login, isLoading, isError} = useLogin();
   const { register, handleSubmit, reset } = useForm();
+  var authData;
   
   const isLoggedIn: boolean = pb.authStore.isValid;
 
 
   async function onSubmit(data: any) {
-        login({email: data.email, password: data.password});
+        authData = login({email: data.email, password: data.password});
         reset();
     }
 
