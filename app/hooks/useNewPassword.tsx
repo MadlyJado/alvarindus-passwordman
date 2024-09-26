@@ -4,13 +4,15 @@ import { encryptPassword } from "../lib/encryption";
 import crypto from 'crypto';
 
 export default function useNewPassword() {
-    async function newPassword({email, password, authdata}: any) {
+    async function newPassword({email, password, url, authdata}: any) {
         const id = authdata.record.id;
         const {iv, encryptedData} = encryptPassword(password, id);
 
         const data = {
             "email": email,
             "password": encryptedData,
+            "websiteurl": url,
+            
         }
     
 
