@@ -12,7 +12,7 @@ function PasswordManCard(props: {name: string, email: string, password: string})
             <p className="bg-amber-500 text-base">Email: {props.email}</p>
             <p className="bg-amber-300 text-base">Password: {props.password}</p>
             <button className="btn btn-accent btn-wide" onClick={CopyToClipBoard}>Click here to copy password of {props.name}</button>
-
+            
             
         
         </>

@@ -1,12 +1,25 @@
 import React from 'react'
+import { useForm } from 'react-hook-form'
 
 function CreateNewPassword() {
   
 
+  const {register, handleSubmit, reset} = useForm();
   
+  function onSubmit() {
+    
+  }
 
   return (
-    <div>CreateNewPassword</div>
+    <form onSubmit={handleSubmit(onSubmit)}>
+    <label className="input input-bordered flex items-center gap-2">
+        <input type="text" className="grow" placeholder="Email" {...register("email")}/>
+    </label>
+    <label className="input input-bordered flex items-center gap-2">
+        <input type="password" className="grow" placeholder="Password" {...register("password")}/>
+    </label>
+    <button className="btn btn-primary" type="submit" disabled={isLoading}>{isLoading ? "Loading": "Login"}</button>
+  </form>
   )
 }
 
