@@ -1,5 +1,4 @@
 import crypto from 'crypto';
-import pb from 'pocketbase';
 
 const ALGORITHM = 'aes-256-cbc';
 const IV_LENGTH = 16;
@@ -26,7 +25,7 @@ export const encryptPassword = (password: string, userID: string) => {
 };
 
 // Decrypt function
-export const decryptPassword = (encryptedPassword: any, ivHex: any, userId: string) => {
+export const decryptPassword = (encryptedPassword: string, ivHex: string, userId: string) => {
     const key = generateKey(userId);
     const iv = Buffer.from(ivHex, 'hex');
 

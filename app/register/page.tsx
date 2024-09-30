@@ -7,8 +7,8 @@ interface Props {}
 
 const page: NextPage<Props> = ({}) => {
   return (
-    <div>
-        <h1 className='text-secondary text-center text-xl '>Register</h1>
+    <div >
+        <h1 className='text-secondary text-center text-xl'>Register</h1>
         <Register/>
         <Link href="/" className="btn btn-secondary">Back to homepage</Link>
     </div>
