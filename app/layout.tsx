@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import ReactQueryProvider from "./Components/ReactQueryProvider";
 import Providers from "./Components/ReactQueryProvider";
 
 const geistSans = localFont({
