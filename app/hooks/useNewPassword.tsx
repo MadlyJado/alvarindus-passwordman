@@ -24,10 +24,6 @@ export default function useNewPassword() {
         await pb.collection("Account").create(data);
     }
 
-<<<<<<< HEAD
-    return useMutation(newPassword);
-    
-=======
     return useMutation(newPassword, {
         onSuccess: (data) => {
             console.log('Password and IV saved successfully');
@@ -36,5 +32,4 @@ export default function useNewPassword() {
             console.error('Failed to save password:', error);
         }
     });
->>>>>>> bced24ca7cf9498ed65f11b086502987460ee13f
 }
