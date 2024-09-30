@@ -1,5 +1,8 @@
+'use client';
+
 import React from 'react'
 import { useForm } from 'react-hook-form'
+import { encryptPassword } from '@/app/lib/encryption';
 
 function CreateNewPassword() {
   
@@ -7,7 +10,7 @@ function CreateNewPassword() {
   const {register, handleSubmit, reset} = useForm();
   
   function onSubmit() {
-    
+      
   }
 
   return (
