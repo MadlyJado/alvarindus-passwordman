@@ -6,6 +6,7 @@ import { useForm } from 'react-hook-form'
 import pb from '@/app/lib/pocketbase';
 import useLogout from '@/app/hooks/useLogout';
 import useLogin from '@/app/hooks/useLogin';
+import CreateNewPassword from '../CreateNewPassword/CreateNewPassword';
 
 
 
@@ -31,6 +32,7 @@ function EmailAndPass(props: any) {
     return (
         <>
             <h1>Logged in: {isLoggedIn && pb.authStore.model.email}</h1>
+            <CreateNewPassword authData={authData}/>
             <button className="btn btn-secondary" onClick={logout}>Log out</button>
         </>
     )

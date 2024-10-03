@@ -2,15 +2,17 @@
 
 import React from 'react'
 import { useForm } from 'react-hook-form'
-import { encryptPassword } from '@/app/lib/encryption';
+import useNewPassword from '@/app/hooks/useNewPassword';
+import pb from '@/app/lib/pocketbase';
 
 function CreateNewPassword() {
   
-
+  const { mutate: createNewPass, isLoading, isError } = useNewPassword();
   const {register, handleSubmit, reset} = useForm();
   
-  function onSubmit() {
-      
+  function onSubmit(data: any) {
+      createNewPass({email: data.email, password: data.password, url: data.url});
+      reset();
   }
 
   return (
@@ -21,7 +23,10 @@ function CreateNewPassword() {
     <label className="input input-bordered flex items-center gap-2">
         <input type="password" className="grow" placeholder="Password" {...register("password")}/>
     </label>
-    <button className="btn btn-primary" type="submit" disabled={isLoading}>{isLoading ? "Loading": "Login"}</button>
+    <label className="input input-bordered flex items-center gap-2">
+        <input className="grow" placeholder="URL" {...register("url")}/>
+    </label>
+    <button className="btn btn-primary" type="submit" disabled={isLoading}>{isLoading ? "Loading": "Create New Login Info Entry"}</button>
   </form>
   )
 }

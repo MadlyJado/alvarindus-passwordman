@@ -4,24 +4,25 @@ import { encryptPassword } from "../lib/encryption";
 import crypto from 'crypto';
 
 export default function useNewPassword() {
-    async function newPassword({email, password, url, authdata}: any) {
-        const id = authdata.record.id;
+    async function newPassword({email, password, url}: any) {
+        const id = pb.authStore.model.id;
+        const emailData = pb.authStore.model.email;
         
         // Encrypt the password using the user's ID
         const { iv, encryptedData } = encryptPassword(password, id);
         
         // Prepare data to be saved in Pocketbase
         const data = {
-            email,
-            password: encryptedData,  // Store the encrypted password
-            websiteurl: url,
+            "email": email,
+            "password": encryptedData,  // Store the encrypted password
+            "websiteurl": url,
         };
 
         // Store the iv in localStorage (for client-side access later)
-        localStorage.setItem(`iv_${email}`, iv);  // Prefix with user ID to uniquely identify
+        localStorage.setItem(`iv_${emailData}`, iv);  // Prefix with user's email to uniquely identify
         
         // Save the encrypted password and other data in Pocketbase
-        await pb.collection("Account").create(data);
+        const record = await pb.collection("Account").create(data);
     }
 
     return useMutation(newPassword, {
