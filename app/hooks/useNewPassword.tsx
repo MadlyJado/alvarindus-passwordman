@@ -18,6 +18,10 @@ export default function useNewPassword() {
 
         pb.collection("Account").create(data);
 
+        return iv;
+
     }
+
+    return useMutation(newPassword);
     
 }
