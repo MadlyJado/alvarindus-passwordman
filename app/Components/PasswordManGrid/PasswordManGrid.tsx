@@ -30,8 +30,7 @@ function PasswordManGrid() {
                 {data.map((item) => (
 
                     <PasswordManCard
-                        user={item.id}
-                        name={item.user}
+                        name={item.name}
                         email={item.email}
                         password={decryptPassword(
                             item.password,

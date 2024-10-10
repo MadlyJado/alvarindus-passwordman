@@ -11,7 +11,7 @@ function CreateNewPassword() {
   const {register, handleSubmit, reset} = useForm();
   
   function onSubmit(data: any) {
-      createNewPass({name: data.name, email: data.email, password: data.password, url: data.url});
+      createNewPass({user: pb.authStore.model.email, name: data.name, email: data.email, password: data.password, url: data.url});
       reset();
   }
 
