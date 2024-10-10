@@ -18,7 +18,7 @@ function CreateNewPassword() {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
     <label className="input input-bordered flex items-center gap-2">
-        <input type="text" className="grow" placeholder="Email" {...register("name")}/>
+        <input type="text" className="grow" placeholder="Name" {...register("name")}/>
     </label>
     <label className="input input-bordered flex items-center gap-2">
         <input type="text" className="grow" placeholder="Email" {...register("email")}/>
