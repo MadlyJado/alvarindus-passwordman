@@ -28,6 +28,7 @@ function PasswordManGrid() {
         <>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {data.map((item) => (
+
                     <PasswordManCard
                         user={item.id}
                         name={item.user}
