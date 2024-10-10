@@ -1,3 +1,4 @@
+'use client';
 
 function PasswordManCard(props: {name: string, email: string, password: string}) {
 

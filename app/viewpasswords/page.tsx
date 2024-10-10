@@ -1,3 +1,5 @@
+'use client';
+
 import { NextPage } from 'next'
 import EmailAndPass from '../Components/EmailandPass/EmailAndPass'
 import Link from 'next/link'
