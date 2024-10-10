@@ -3,7 +3,7 @@
 import pb from "@/app/lib/pocketbase";
 import { useEffect, useState } from "react";
 import { decryptPassword } from "@/app/lib/encryption";
-import PasswordManCard from "./PasswordManCard";
+import PasswordManCard from "../PasswordManCard/PasswordManCard";
 
 function PasswordManGrid() {
     const [data, setData] = useState<any[]>([]);

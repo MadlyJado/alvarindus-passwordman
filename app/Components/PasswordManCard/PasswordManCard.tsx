@@ -1,4 +1,5 @@
-'use client';
+import React from "react";
+
 
 function PasswordManCard(props: {name: string, email: string, password: string}) {
 
@@ -23,3 +24,5 @@ function PasswordManCard(props: {name: string, email: string, password: string})
 PasswordManCard.propTypes = {
 
 }
+
+export default PasswordManCard
