@@ -7,6 +7,7 @@ import pb from '@/app/lib/pocketbase';
 import useLogout from '@/app/hooks/useLogout';
 import useLogin from '@/app/hooks/useLogin';
 import CreateNewPassword from '../CreateNewPassword/CreateNewPassword';
+import Link from 'next/link';
 
 
 
@@ -32,7 +33,8 @@ function EmailAndPass(props: any) {
     return (
         <>
             <h1>Logged in: {isLoggedIn && pb.authStore.model.email}</h1>
-            <CreateNewPassword authData={authData}/>
+            <Link className="btn bg-amber-600 btn-wide" href="/viewpasswords">View All Passwords</Link>
+            <Link className="btn btn-accent btn-wide" href="/createnewpassword">Create new Password</Link>
             <button className="btn btn-secondary" onClick={logout}>Log out</button>
         </>
     )

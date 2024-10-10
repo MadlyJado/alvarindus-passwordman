@@ -13,16 +13,19 @@ export default function useNewPassword() {
         
         // Prepare data to be saved in Pocketbase
         const data = {
+            "user": pb.authStore.model.email,  // Store the user's email
             "email": email,
             "password": encryptedData,  // Store the encrypted password
             "websiteurl": url,
         };
 
         // Store the iv in localStorage (for client-side access later)
-        localStorage.setItem(`iv_${emailData}`, iv);  // Prefix with user's email to uniquely identify
+         // Prefix with user's email to uniquely identify
         
         // Save the encrypted password and other data in Pocketbase
         const record = await pb.collection("Account").create(data);
+
+        localStorage.setItem(`iv_${record.id}`, iv);
     }
 
     return useMutation(newPassword, {
