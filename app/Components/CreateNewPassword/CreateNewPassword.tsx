@@ -11,12 +11,15 @@ function CreateNewPassword() {
   const {register, handleSubmit, reset} = useForm();
   
   function onSubmit(data: any) {
-      createNewPass({email: data.email, password: data.password, url: data.url});
+      createNewPass({name: data.name, email: data.email, password: data.password, url: data.url});
       reset();
   }
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
+    <label className="input input-bordered flex items-center gap-2">
+        <input type="text" className="grow" placeholder="Email" {...register("name")}/>
+    </label>
     <label className="input input-bordered flex items-center gap-2">
         <input type="text" className="grow" placeholder="Email" {...register("email")}/>
     </label>
