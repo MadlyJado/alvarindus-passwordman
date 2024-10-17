@@ -1,46 +1,49 @@
 import pb from "../lib/pocketbase";
-import { useMutation } from "react-query";
+import { useMutation, useQueryClient } from "react-query";
 import { decryptPassword } from "../lib/encryption";
-import crypto from 'crypto';
 import { useEffect, useState } from "react";
 
 export default function useDeletePassword() {
-    async function deletePassword(decryptedPassword: any) {
+    const [data, setData] = useState<any[]>([]);
+    const queryClient = useQueryClient();
 
-        const [data, setData] = useState<any[]>([]);
-
-        useEffect(() => {
-            const fetchData = async () => {
-                if (pb.authStore.model) {
-                    const usremail = pb.authStore.model.email;
-                    try {
-                        const records = await pb.collection("Account").getFullList({ filter: `user="${usremail}"` });
-                        setData(records);
-                    } catch (error) {
-                        console.error("Error fetching data:", error);
-                    }
+    useEffect(() => {
+        const fetchData = async () => {
+            if (pb.authStore.model) {
+                const usremail = pb.authStore.model.email;
+                try {
+                    const records = await pb.collection("Account").getFullList({ filter: `user="${usremail}"` });
+                    setData(records);
+                } catch (error) {
+                    console.error("Error fetching data:", error);
                 }
-            };
-
-            fetchData();
-        }, []);
-        
-
-        data.map((item) => {
-            if (decryptPassword(item.password, localStorage.getItem(`iv_${item.id}`) || '', pb.authStore.model?.id || '') === decryptedPassword) {
-                pb.collection("Account").delete(item.id);
-                localStorage.removeItem(`iv_${item.id}`);
             }
-        })
-        
+        };
+
+        fetchData();
+    }, []);
+
+    async function deletePassword(decryptedPassword: string) {
+        const itemToDelete = data.find(item => 
+            decryptPassword(item.password, localStorage.getItem(`iv_${item.id}`) || '', pb.authStore.model?.id || '') === decryptedPassword
+        );
+
+        if (itemToDelete) {
+            await pb.collection("Account").delete(itemToDelete.id);
+            localStorage.removeItem(`iv_${itemToDelete.id}`);
+            return itemToDelete.id;
+        } else {
+            throw new Error("Password not found");
+        }
     }
 
     return useMutation(deletePassword, {
-        onSuccess: (data) => {
-            console.log('Password and IV saved successfully');
+        onSuccess: (deletedId) => {
+            console.log('Password deleted successfully');
+            queryClient.invalidateQueries('passwords'); // Assuming you have a query key for fetching passwords
         },
         onError: (error) => {
-            console.error('Failed to save password:', error);
+            console.error('Failed to delete password:', error);
         }
     });
 }
