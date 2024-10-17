@@ -13,7 +13,7 @@ function PasswordManCard(props: {name: string, email: string, password: string})
 
 
     function deletePass() {
-        deletePassword({unencryptedPassword: props.password});
+        deletePassword(props.password);
     }
 
     const { mutate: deletePassword} =  useDeletePassword();

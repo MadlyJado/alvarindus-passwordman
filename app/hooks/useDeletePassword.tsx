@@ -5,7 +5,7 @@ import crypto from 'crypto';
 import { useEffect, useState } from "react";
 
 export default function useDeletePassword() {
-    async function deletePassword({decryptedPassword}: any) {
+    async function deletePassword(decryptedPassword: any) {
 
         
         const [data, setData] = useState<any[]>([]);
