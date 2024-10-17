@@ -36,7 +36,9 @@ function PasswordManGrid() {
                             item.password,
                             localStorage.getItem(`iv_${item.id}`) || '',
                             pb.authStore.model?.id || ''
+                        
                         )}
+                        encryptedPassword={item.password}
                     />
                 ))}
             </div>
