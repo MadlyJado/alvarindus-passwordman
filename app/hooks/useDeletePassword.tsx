@@ -7,7 +7,6 @@ import { useEffect, useState } from "react";
 export default function useDeletePassword() {
     async function deletePassword(decryptedPassword: any) {
 
-        
         const [data, setData] = useState<any[]>([]);
 
         useEffect(() => {
@@ -21,25 +20,18 @@ export default function useDeletePassword() {
                         console.error("Error fetching data:", error);
                     }
                 }
-             };
+            };
 
-        fetchData();
-    }, []);
+            fetchData();
+        }, []);
+        
 
-        for (const record of data) {
-            const unEncryptedPass = decryptPassword(record.password, localStorage.getItem(`iv_${record.id}`) || "", pb.authStore.model?.id || "");
-            if (unEncryptedPass === decryptedPassword) {
-                try {
-                    const isDeleted = await pb.collection("Account").delete(record.id);
-                    console.log('Password deleted successfully');
-                    break;
-                } catch (error) {
-                    console.error('Failed to delete password:', error);
-                    break;
-                }
-            }  // else continue to next record in the list  // Handle the case where the password is not found in the list
-        }
-
+        data.map((item) => {
+            if (decryptPassword(item.password, localStorage.getItem(`iv_${item.id}`) || '', pb.authStore.model?.id || '') === decryptedPassword) {
+                pb.collection("Account").delete(item.id);
+                localStorage.removeItem(`iv_${item.id}`);
+            }
+        })
         
     }
 
