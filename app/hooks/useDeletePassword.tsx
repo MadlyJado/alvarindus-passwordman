@@ -1,13 +1,11 @@
-import pb from "../lib/pocketbase";
-import { useMutation } from "react-query";
-import { decryptPassword } from "../lib/encryption";
-import crypto from 'crypto';
-import { useEffect, useState } from "react";
+import { useState, useEffect } from 'react';
+import { useMutation } from 'react-query';
+import pb from '@/app/lib/pocketbase'; // Adjust the import path as necessary
+import { decryptPassword } from "@/app/lib/encryption"; // Adjust the import path as necessary
 
-export default function useDeletePassword() {
-    async function deletePassword(decryptedPassword: any) {
+const useDeletePassword = (decryptedPassword: any) => {
 
-        
+    async function deletePassword() {
         const [data, setData] = useState<any[]>([]);
 
         useEffect(() => {
@@ -21,22 +19,33 @@ export default function useDeletePassword() {
                         console.error("Error fetching data:", error);
                     }
                 }
-             };
-
-        fetchData();
-    }, []);
-
-    data.forEach(async (item) => {
-        const password = item.password;
-        const decryptedData = decryptPassword(password, localStorage.getItem(`iv_${item.id}`) || '', pb.authStore.model?.id || '');
-        if (decryptedData === decryptedPassword) {
-            await pb.collection("Account").delete(item.id);
-            localStorage.removeItem(`iv_${item.id}`);
-        }
-    });
+            };
+    
+            fetchData();
+        }, []);
+    
+        useEffect(() => {
+            const deletePasswords = async () => {
+                for (const item of data) {
+                    const password = item.password;
+                    const decryptedData = decryptPassword(password, localStorage.getItem(`iv_${item.id}`) || '', pb.authStore.model?.id || '');
+                    if (decryptedData === decryptedPassword) {
+                        await pb.collection("Account").delete(item.id);
+                        localStorage.removeItem(`iv_${item.id}`);
+                    }
+                }
+            };
+    
+            if (data.length > 0) {
+                deletePasswords();
+            }
+        }, [data, decryptedPassword]);
 
         
     }
+   
+
+    
 
     return useMutation(deletePassword, {
         onSuccess: (data) => {
@@ -46,4 +55,6 @@ export default function useDeletePassword() {
             console.error('Failed to save password:', error);
         }
     });
-}
+};
+
+export default useDeletePassword;
