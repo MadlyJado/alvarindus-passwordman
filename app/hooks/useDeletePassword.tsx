@@ -2,27 +2,38 @@ import pb from "../lib/pocketbase";
 import { useMutation } from "react-query";
 import { decryptPassword } from "../lib/encryption";
 import crypto from 'crypto';
+import { useEffect, useState } from "react";
 
 export default function useDeletePassword() {
     async function deletePassword({decryptedPassword}: any) {
 
         
-        const usremail = pb.authStore.model.email;
-        const accountList = await pb.collection("Account").getFullList({  filter: `user="${usremail}"`});
+        const [data, setData] = useState<any[]>([]);
 
-        for (var record in accountList) {
-            var account = accountList[record];
-            const iv = localStorage.getItem(`iv_${account.id}`) || "";  // Retrieve the IV from localStorage
+        useEffect(() => {
+            const fetchData = async () => {
+                if (pb.authStore.model) {
+                    const usremail = pb.authStore.model.email;
+                    try {
+                        const records = await pb.collection("Account").getFullList({ filter: `user="${usremail}"` });
+                        setData(records);
+                    } catch (error) {
+                        console.error("Error fetching data:", error);
+                    }
+                }
+             };
 
-            const password = decryptPassword(account.password, iv, account.id);
+        fetchData();
+    }, []);
 
-            if(password === decryptedPassword) {
-                await pb.collection("Account").delete(account.id);  // Delete the corresponding record from Pocketbase
-                localStorage.removeItem(`iv_${account.id}`);  // Remove the IV from localStorage as well
-                alert("Password deleted successfully");
-                break;
-            }
+    data.map((item) => {
+        const password = item.password;
+        const decryptedData = decryptPassword(password, localStorage.getItem(`iv_${item.id}`) || '', pb.authStore.model?.id || '');
+        if (decryptedData === decryptedPassword) {
+            pb.collection("Account").delete(item.id);
+            localStorage.removeItem(`iv_${item.id}`);
         }
+    });
 
         
     }
