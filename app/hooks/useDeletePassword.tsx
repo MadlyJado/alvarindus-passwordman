@@ -26,14 +26,19 @@ export default function useDeletePassword() {
         fetchData();
     }, []);
 
-    data.forEach(async (item) => {
-        const password = item.password;
-        const decryptedData = decryptPassword(password, localStorage.getItem(`iv_${item.id}`) || '', pb.authStore.model?.id || '');
-        if (decryptedData == decryptedPassword) {
-            const isDeleted = await pb.collection("Account").delete(item.id);
-            localStorage.removeItem(`iv_${item.id}`);
+        for (const record of data) {
+            const unEncryptedPass = decryptPassword(record.password, localStorage.getItem(`iv_${record.id}`) || "", record.id);
+            if (unEncryptedPass === decryptedPassword) {
+                try {
+                    const isDeleted = await pb.collection("Account").delete(record.id);
+                    console.log('Password deleted successfully');
+                    break;
+                } catch (error) {
+                    console.error('Failed to delete password:', error);
+                    break;
+                }
+            }  // else continue to next record in the list  // Handle the case where the password is not found in the list
         }
-    });
 
         
     }
