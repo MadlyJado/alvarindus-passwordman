@@ -11,7 +11,7 @@ function PasswordManCard(props: { name: string, email: string, password: string 
     }
 
     function deletePassword() {
-        deletePass({ decryptedPassword: props.password });
+        deletePass(props.password);
     }
 
     useEffect(() => {
