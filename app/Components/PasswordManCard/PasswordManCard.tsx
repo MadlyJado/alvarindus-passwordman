@@ -35,7 +35,7 @@ function PasswordManCard(props: { name: string, email: string, password: string,
                 await deletePass({ id: item.id, encryptedPassword: props.encryptedPassword });
                 return;
             }
-       }
+       });
     }
 
     useEffect(() => {
