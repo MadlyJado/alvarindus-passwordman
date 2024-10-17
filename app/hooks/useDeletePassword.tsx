@@ -4,7 +4,7 @@ import { encryptPassword } from "../lib/encryption";
 import crypto from 'crypto';
 
 export default function useDeletePassword() {
-    async function deletePassword(encryptedPassword: any) {
+    async function deletePassword({encryptedPassword}: any) {
 
         
 

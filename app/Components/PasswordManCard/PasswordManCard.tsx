@@ -13,8 +13,8 @@ function PasswordManCard(props: {name: string, email: string, password: string})
 
 
     function deletePass() {
-        const { iv, encryptedPassword } = encryptPassword(password: props.password, pb.authStore.model.id);
-        deletePassword({encryptPassword: encryptedPassword});
+        const { iv, encryptedData } = encryptPassword(password: props.password, pb.authStore.model.id);
+        deletePassword({encryptPassword: encryptedData});
         // Reload the page to reflect the change
         window.location.reload();  // This line is not required in a functional component, but is required in a class component
     }
