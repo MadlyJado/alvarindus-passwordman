@@ -12,8 +12,9 @@ function PasswordManCard(props: {name: string, email: string, password: string})
     }
 
 
-    function deletePass() {
-        useDeletePassword(props.password); // delete password from database and local storage
+    function deletePassword() {
+        const { mutate: deletePass } = useDeletePassword(props.password); // delete password from database and local storage
+        deletePass();
     }
 
     return (
@@ -23,7 +24,7 @@ function PasswordManCard(props: {name: string, email: string, password: string})
             <p className="text-amber-500 text-base">Email: {props.email}</p>
             <p className="text-lime-700 text-base">Password: {props.password}</p>
             <button className="btn btn-accent btn-wide" onClick={CopyToClipBoard}>Click here to copy password of {props.email}</button>
-            <button className="btn btn-accent btn-wide" onClick={deletePass}>Click here to delete password entry</button>
+            <button className="btn btn-accent btn-wide" onClick={deletePassword}>Click here to delete password entry</button>
             </div>
             
         
