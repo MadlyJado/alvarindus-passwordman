@@ -1,7 +1,7 @@
 import useDeletePassword from "@/app/hooks/useDeletePassword";
 import React from "react";
 
-function PasswordManCard(props: { name: string, email: string, password: string, url: string }) {
+function PasswordManCard(props: { name: string, email: string, password: string, url: string, onDelete: () => void}) {
 
     const { mutate: deletePass } = useDeletePassword();
    
@@ -13,7 +13,11 @@ function PasswordManCard(props: { name: string, email: string, password: string,
 
     function deletePassword() {
         if (window.confirm(`Are you sure you want to delete this password entry for ${props.name}?`)) {
-            deletePass(props.password);
+            deletePass(props.password, {
+                onSuccess: () => {
+                    props.onDelete();
+                }
+            });
         }
     }
 
