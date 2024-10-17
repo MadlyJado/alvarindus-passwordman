@@ -3,7 +3,7 @@ import { useMutation } from 'react-query';
 import pb from '@/app/lib/pocketbase'; // Adjust the import path as necessary
 import { decryptPassword } from "@/app/lib/encryption"; // Adjust the import path as necessary
 
-const useDeletePassword = (decryptedPassword: string) => {
+function useDeletePassword(decryptedPassword: string) {
     const [data, setData] = useState<any[]>([]);
 
     useEffect(() => {
@@ -49,6 +49,6 @@ const useDeletePassword = (decryptedPassword: string) => {
     }, [data, decryptedPassword]);
 
     return mutation;
-};
+}
 
 export default useDeletePassword;
