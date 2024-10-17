@@ -1,14 +1,20 @@
 import React from "react";
 import useDeletePassword from "@/app/hooks/useDeletePassword";
+import { encryptPassword } from "@/app/lib/encryption";
+import pb from "@/app/lib/pocketbase";
 
 function PasswordManCard(props: {name: string, email: string, password: string}) {
+
+
 
     function CopyToClipBoard() {
         navigator.clipboard.writeText(props.password);
     }
 
+
     function deletePass() {
-        deletePassword(props.password);
+        const { iv, encryptedPassword } = encryptPassword(password: props.password, pb.authStore.model.id);
+        deletePassword({encryptPassword: encryptedPassword});
         // Reload the page to reflect the change
         window.location.reload();  // This line is not required in a functional component, but is required in a class component
     }
