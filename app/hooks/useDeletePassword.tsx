@@ -14,7 +14,7 @@ export default function useDeletePassword() {
             var account = accountList[record];
             const iv = localStorage.getItem(`iv_${account.id}`);  // Retrieve the IV from localStorage
 
-            const password = decryptPassword(encryptedPassword, iv, pb.authStore.model.id);
+            const password = decryptPassword(account.password, iv, pb.authStore.model.id);
 
             if(password === decryptedPassword) {
                 await pb.collection("Account").delete(account.id);  // Delete the corresponding record from Pocketbase
