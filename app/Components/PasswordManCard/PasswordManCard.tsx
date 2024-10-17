@@ -13,8 +13,7 @@ function PasswordManCard(props: {name: string, email: string, password: string})
 
 
     function deletePass() {
-        const { iv, encryptedData } = encryptPassword(props.password, pb.authStore.model.id);
-        deletePassword({encryptPassword: encryptedData});
+        deletePassword({unencryptedPassword: props.password});
     }
 
     const { mutate: deletePassword} =  useDeletePassword();
