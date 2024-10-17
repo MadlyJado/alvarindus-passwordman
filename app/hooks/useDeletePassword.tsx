@@ -33,14 +33,15 @@ export default function useDeletePassword() {
             }
         }
 
-    const mutation: any = useMutation(deletePassword, {
-        onSuccess: () => {
-            console.log('Password and IV deleted successfully');
-        },
-        onError: (error) => {
-            console.error('Failed to delete password:', error);
-        }
-    });
+        const mutation: any = useMutation(deletePassword, {
+            onSuccess: () => {
+                console.log('Password and IV deleted successfully');
+            },
+            onError: (error) => {
+                console.error('Failed to delete password:', error);
+            }
+        });
 
-    return mutation;
+        return mutation;
+    }
 }
