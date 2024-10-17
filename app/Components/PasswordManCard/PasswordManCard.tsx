@@ -29,10 +29,10 @@ function PasswordManCard(props: { name: string, email: string, password: string,
         navigator.clipboard.writeText(props.password);
     }
 
-    async function deletePassword() {
-       data.map(async (item) => {
+    function deletePassword() {
+       data.map((item) => {
             if(item.password === props.encryptedPassword) {
-                await deletePass({ id: item.id, encryptedPassword: props.encryptedPassword });
+                deletePass({ id: item.id, encryptedPassword: props.encryptedPassword });
                 return;
             }
        });
