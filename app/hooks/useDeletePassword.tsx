@@ -26,11 +26,11 @@ export default function useDeletePassword() {
         fetchData();
     }, []);
 
-    data.map((item) => {
+    data.forEach(async (item) => {
         const password = item.password;
         const decryptedData = decryptPassword(password, localStorage.getItem(`iv_${item.id}`) || '', pb.authStore.model?.id || '');
         if (decryptedData === decryptedPassword) {
-            pb.collection("Account").delete(item.id);
+            await pb.collection("Account").delete(item.id);
             localStorage.removeItem(`iv_${item.id}`);
         }
     });
