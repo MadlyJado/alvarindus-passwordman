@@ -28,17 +28,14 @@ function PasswordManGrid() {
         <>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {data.map((item) => (
-
                     <PasswordManCard
+                        key={item.id} // Add a unique key prop here
                         name={item.name}
                         email={item.email}
                         password={decryptPassword(
-                            item.password,
-                            localStorage.getItem(`iv_${item.id}`) || '',
-                            pb.authStore.model?.id || ''
-                        
-                        )}
-                        encryptedPassword={item.password}
+                            item.password)
+                        }
+                        url={item.url}
                     />
                 ))}
             </div>

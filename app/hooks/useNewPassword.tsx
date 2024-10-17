@@ -5,11 +5,9 @@ import crypto from 'crypto';
 
 export default function useNewPassword() {
     async function newPassword({user, name, email, password, url}: any) {
-        const id = pb.authStore.model.id;
-        const emailData = pb.authStore.model.email;
         
         // Encrypt the password using the user's ID
-        const { iv, encryptedData } = encryptPassword(password, id);
+        const encryptedData = encryptPassword(password);
         
         // Prepare data to be saved in Pocketbase
         const data = {
@@ -25,8 +23,6 @@ export default function useNewPassword() {
         
         // Save the encrypted password and other data in Pocketbase
         const record = await pb.collection("Account").create(data);
-
-        localStorage.setItem(`iv_${record.id}`, iv);
         
     }
 
