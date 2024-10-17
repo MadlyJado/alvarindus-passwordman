@@ -3,9 +3,9 @@ import { useMutation } from 'react-query';
 import pb from '@/app/lib/pocketbase'; // Adjust the import path as necessary
 import { decryptPassword } from "@/app/lib/encryption"; // Adjust the import path as necessary
 
-const useDeletePassword = (decryptedPassword: any) => {
+const useDeletePassword = () => {
 
-    async function deletePassword() {
+    async function deletePassword(decryptedPassword: any) {
         const [data, setData] = useState<any[]>([]);
 
         useEffect(() => {
