@@ -12,8 +12,8 @@ function PasswordManCard(props: {name: string, email: string, password: string})
     }
 
 
-    function deletePass() {
-        deletePassword({unencryptedPassword: props.password});
+    async function deletePass() {
+        await deletePassword({unencryptedPassword: props.password});
     }
 
     const { mutate: deletePassword} =  useDeletePassword();
