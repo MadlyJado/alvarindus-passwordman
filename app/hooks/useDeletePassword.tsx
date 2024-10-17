@@ -33,13 +33,7 @@ const useDeletePassword = (decryptedPassword: string) => {
         }
     };
 
-    useEffect(() => {
-        if (data.length > 0) {
-            deletePassword();
-        }
-    }, [data, decryptedPassword]);
-
-    return useMutation(deletePassword, {
+    const mutation = useMutation(deletePassword, {
         onSuccess: () => {
             console.log('Password and IV deleted successfully');
         },
@@ -47,6 +41,14 @@ const useDeletePassword = (decryptedPassword: string) => {
             console.error('Failed to delete password:', error);
         }
     });
+
+    useEffect(() => {
+        if (data.length > 0) {
+            mutation.mutate();
+        }
+    }, [data, decryptedPassword]);
+
+    return mutation;
 };
 
 export default useDeletePassword;
