@@ -1,12 +1,21 @@
+import useDeletePassword from "@/app/hooks/useDeletePassword";
 import React from "react";
 
 function PasswordManCard(props: { name: string, email: string, password: string, url: string }) {
 
+    const { mutate: deletePass } = useDeletePassword();
+   
 
     function CopyToClipBoard() {
         navigator.clipboard.writeText(props.password);
+        
     }
 
+    function deletePassword() {
+        if (window.confirm(`Are you sure you want to delete this password entry for ${props.name}?`)) {
+            deletePass(props.password);
+        }
+    }
 
     return (
         <>
