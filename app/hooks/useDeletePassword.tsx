@@ -5,7 +5,7 @@ import { decryptPassword } from "@/app/lib/encryption"; // Adjust the import pat
 
 export default function useDeletePassword() {
 
-    async function deletePassword(decryptedPassword: string) {
+    async function deletePassword({decryptedPassword}: any) {
         const [data, setData] = useState<any[]>([]);
 
         useEffect(() => {
@@ -33,15 +33,15 @@ export default function useDeletePassword() {
             }
         }
 
-        const mutation: any = useMutation(deletePassword, {
-            onSuccess: () => {
-                console.log('Password and IV deleted successfully');
-            },
-            onError: (error) => {
-                console.error('Failed to delete password:', error);
-            }
-        });
-
-        return mutation;
+        
     }
+
+    return useMutation(deletePassword, {
+        onSuccess: () => {
+            console.log('Password and IV deleted successfully');
+        },
+        onError: (error) => {
+            console.error('Failed to delete password:', error);
+        }
+    });
 }
