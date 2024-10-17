@@ -7,12 +7,12 @@ export default function useDeletePassword() {
     async function deletePassword({decryptedPassword}: any) {
 
         
-
-        const accountList = await pb.collection("Account").getFullList();
+        const usremail = pb.authStore.model.email;
+        const accountList = await pb.collection("Account").getFullList({  filter: `user="${usremail}"`});
 
         for (var record in accountList) {
             var account = accountList[record];
-            const iv = localStorage.getItem(`iv_${account.id}`);  // Retrieve the IV from localStorage
+            const iv = localStorage.getItem(`iv_${account.id}`) || "";  // Retrieve the IV from localStorage
 
             const password = decryptPassword(account.password, iv, account.id);
 
