@@ -11,9 +11,10 @@ export default function useDeletePassword() {
         const accountList = await pb.collection("Account").getFullList();
 
         for (var record in accountList) {
-            if(record.password === encryptedPassword) {
-                await pb.collection("Account").delete(record.id);
-                localStorage.removeItem(`iv_${record.id}`);  // Remove the IV from localStorage as well
+            var account = accountList[record];
+            if(account.password === encryptedPassword) {
+                await pb.collection("Account").delete(account.id);  // Delete the corresponding record from Pocketbase
+                localStorage.removeItem(`iv_${account.id}`);  // Remove the IV from localStorage as well
                 alert("Password deleted successfully");
                 break;
             }
