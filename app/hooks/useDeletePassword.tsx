@@ -9,19 +9,15 @@ export default function useDeletePassword() {
         
 
         const accountList = await pb.collection("Account").getFullList();
-        var record;
 
-        accountList.forEach(account => {
-            if(account.password === encryptedPassword) {
-                // Set record variable to the account record that contains the encrypted password.
-                record = account;
-                pb.collection("Account").delete(record.id);
-
-                //Remove password iv from local storage
-                localStorage.removeItem(`iv_${pb.authStore.model.id}`);
-                return;
+        for (var record in accountList) {
+            if(record.password === encryptedPassword) {
+                await pb.collection("Account").delete(record.id);
+                localStorage.removeItem(`iv_${record.id}`);  // Remove the IV from localStorage as well
+                alert("Password deleted successfully");
+                break;
             }
-        });
+        }
 
         
     }
