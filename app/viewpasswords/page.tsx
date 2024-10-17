@@ -12,7 +12,7 @@ const Login: NextPage<Props> = ({}) => {
     <div >
         <h1 className="text-secondary text-center text-xl bg-transparent">Current Saved Logins</h1>
         <PasswordManGrid />
-        <Link href="/login" className="btn btn-secondary">Return to Login Login</Link>
+        <Link href="/login" className="btn btn-secondary">Return to Login Screen</Link>
     </div>
   )
 }

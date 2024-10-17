@@ -27,6 +27,7 @@ export default function useNewPassword() {
         const record = await pb.collection("Account").create(data);
 
         localStorage.setItem(`iv_${record.id}`, iv);
+        
     }
 
     return useMutation(newPassword, {

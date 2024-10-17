@@ -1,5 +1,5 @@
 import React from "react";
-
+import useDeletePassword from "@/app/hooks/useDeletePassword";
 
 function PasswordManCard(props: {name: string, email: string, password: string}) {
 
@@ -7,6 +7,7 @@ function PasswordManCard(props: {name: string, email: string, password: string})
         navigator.clipboard.writeText(props.password);
     }
 
+    const { mutate: deletePassword} =  useDeletePassword();
 
     return (
         <>
@@ -15,6 +16,7 @@ function PasswordManCard(props: {name: string, email: string, password: string})
             <p className="text-amber-500 text-base">Email: {props.email}</p>
             <p className="text-lime-700 text-base">Password: {props.password}</p>
             <button className="btn btn-accent btn-wide" onClick={CopyToClipBoard}>Click here to copy password of {props.email}</button>
+            <button className="btn btn-accent btn-wide" onClick={deletePassword}>Click here to delete password entry</button>
             </div>
             
         
