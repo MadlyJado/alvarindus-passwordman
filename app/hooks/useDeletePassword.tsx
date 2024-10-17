@@ -27,7 +27,7 @@ export default function useDeletePassword() {
     }, []);
 
         for (const record of data) {
-            const unEncryptedPass = decryptPassword(record.password, localStorage.getItem(`iv_${record.id}`) || "", record.id);
+            const unEncryptedPass = decryptPassword(record.password, localStorage.getItem(`iv_${record.id}`) || "", pb.authStore.model?.id || "");
             if (unEncryptedPass === decryptedPassword) {
                 try {
                     const isDeleted = await pb.collection("Account").delete(record.id);
