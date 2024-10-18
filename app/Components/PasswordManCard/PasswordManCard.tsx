@@ -25,7 +25,7 @@ function PasswordManCard(props: { name: string, email: string, password: string,
         <>
             <div className="card">
                 <h1 className="card-title text-accent font-bold text-xl">{props.name}</h1>
-                <p className="text-amber-500 text-base">URL: {props.url.toString()}</p>
+                <p className="text-amber-500 text-base">URL: {props.url}</p>
                 <p className="text-amber-500 text-base">Email: {props.email}</p>
                 <p className="text-lime-700 text-base">Password: {props.password}</p>
                 <p className="text-blue-500 text-base">Password Strength: {props.passwordStrength}</p>
