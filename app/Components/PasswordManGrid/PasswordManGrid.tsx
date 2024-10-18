@@ -4,7 +4,7 @@ import pb from "@/app/lib/pocketbase";
 import { useEffect, useState } from "react";
 import { decryptPassword } from "@/app/lib/encryption";
 import PasswordManCard from "../PasswordManCard/PasswordManCard";
-import { PasswordStrength } from "@/app/lib/passwordStrength";
+import { isPasswordStrong } from "@/app/lib/passwordStrength";
 import { PassThrough } from "stream";
 
 function PasswordManGrid() {
@@ -51,7 +51,7 @@ function PasswordManGrid() {
                         password={handleEncrypt(
                             item.password) || ""
                         }
-                        passwordStrength={PasswordStrength(item.password) || 0}
+                        passwordStrength={isPasswordStrong(item.password) || 0}
                         url={item.url}
                         onDelete={() => handleDelete(item.id)} // Add a delete function here to delete the item when the button is clicked. You can use the PocketBase delete method to delete the item. The delete function should be called in the PasswordManCard component. You can also add a confirmation prompt to ensure the user wants to delete the item. You can use the window.confirm method to display a confirmation prompt. If the user confirms, you can delete the
                     />
