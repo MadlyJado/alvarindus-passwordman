@@ -1,4 +1,4 @@
-'user client';
+'use client';
 
 import pb from "@/app/lib/pocketbase";
 import { useEffect, useState } from "react";
@@ -24,40 +24,38 @@ function PasswordManGrid() {
 
         fetchData();
     }, []);
-    
+
     const handleDelete = (id: string) => {
-        setData(data.filter((item) => item.id!== id));
+        setData(data.filter((item) => item.id !== id));
     }
 
     function handleDecrypt(password: string) {
         try {
             const decryptedPass = decryptPassword(password);
             return decryptedPass;
-        }
-        catch (error) {
-            console.log("Error decrypting password:", error);
+        } catch (error) {
+            console.error("Error decrypting password:", error);
+            return ""; // Return an empty string or handle the error as needed
         }
     }
 
     return (
-        <>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {data.map((item) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {data.map((item) => {
+                const decryptedPassword = handleDecrypt(item.password);
+                return (
                     <PasswordManCard
-                        key={item.id} // Add a unique key prop here
+                        key={item.id}
                         name={item.name}
                         email={item.email}
-                        password={handleDecrypt(
-                            item.password) || ""
-                            
-                        }
-                        passwordStrength={isPasswordStrong(item.password) || 0.0}
+                        password={decryptedPassword}
+                        passwordStrength={isPasswordStrong(decryptedPassword) || 0.0}
                         url={item.websiteurl}
-                        onDelete={() => handleDelete(item.id)} // Add a delete function here to delete the item when the button is clicked. You can use the PocketBase delete method to delete the item. The delete function should be called in the PasswordManCard component. You can also add a confirmation prompt to ensure the user wants to delete the item. You can use the window.confirm method to display a confirmation prompt. If the user confirms, you can delete the
+                        onDelete={() => handleDelete(item.id)}
                     />
-                ))}
-            </div>
-        </>
+                );
+            })}
+        </div>
     );
 }
 
