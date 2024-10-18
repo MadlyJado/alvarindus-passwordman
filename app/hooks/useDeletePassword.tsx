@@ -4,28 +4,6 @@ import { decryptPassword } from "../lib/encryption";
 import { useEffect, useState } from "react";
 
 export default function useDeletePassword() {
-    const [data, setData] = useState<any[]>([]);
-    const queryClient = useQueryClient();
-
-    useEffect(() => {
-        const fetchData = async () => {
-            if (pb.authStore.model) {
-                const usremail = pb.authStore.model.email;
-                try {
-                    const records = await pb.collection("Account").getFullList({ filter: `user="${usremail}"` });
-                    setData(records);
-                } catch (error) {
-                    console.error("Error fetching data:", error);
-                }
-            }
-        };
-
-        fetchData();
-    }, []);
-
-   
-
-    export default function useDeletePassword() {
         const [data, setData] = useState<any[]>([]);
         const queryClient = useQueryClient();
 
@@ -60,15 +38,13 @@ export default function useDeletePassword() {
                 }
             }
         }
-    }
-    }
 
-    return useMutation(deletePassword, {
-        onSuccess: (data) => {
-            console.log('Password deleted successfully');
-        },
-        onError: (error) => {
-            console.error('Failed to delete password:', error);
-        }
-    });
-}
+        return useMutation(deletePassword, {
+            onSuccess: (data) => {
+                console.log('Password deleted successfully');
+            },
+            onError: (error) => {
+                console.error('Failed to delete password:', error);
+            }
+        });
+    }
