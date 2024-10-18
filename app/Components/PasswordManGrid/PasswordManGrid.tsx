@@ -28,6 +28,16 @@ function PasswordManGrid() {
         setData(data.filter((item) => item.id!== id));
     }
 
+    function handleEncrypt(password: string) {
+        try {
+            const encryptedPass = decryptPassword(password);
+            return encryptedPass;
+        }
+        catch (error) {
+            console.log("Error decrypting password:", error);
+        }
+    }
+
     return (
         <>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -36,8 +46,8 @@ function PasswordManGrid() {
                         key={item.id} // Add a unique key prop here
                         name={item.name}
                         email={item.email}
-                        password={decryptPassword(
-                            item.password)
+                        password={handleEncrypt(
+                            item.password) || ""
                         }
                         url={item.url}
                         onDelete={() => handleDelete(item.id)} // Add a delete function here to delete the item when the button is clicked. You can use the PocketBase delete method to delete the item. The delete function should be called in the PasswordManCard component. You can also add a confirmation prompt to ensure the user wants to delete the item. You can use the window.confirm method to display a confirmation prompt. If the user confirms, you can delete the
