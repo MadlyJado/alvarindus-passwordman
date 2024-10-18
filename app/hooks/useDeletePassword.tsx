@@ -23,10 +23,7 @@ export default function useDeletePassword() {
         fetchData();
     }, []);
 
-    import pb from "../lib/pocketbase";
-    import { useMutation, useQueryClient } from "react-query";
-    import { decryptPassword } from "../lib/encryption";
-    import { useEffect, useState } from "react";
+   
 
     export default function useDeletePassword() {
         const [data, setData] = useState<any[]>([]);
