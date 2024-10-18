@@ -4,8 +4,7 @@ import pb from "@/app/lib/pocketbase";
 import { useEffect, useState } from "react";
 import { decryptPassword } from "@/app/lib/encryption";
 import PasswordManCard from "../PasswordManCard/PasswordManCard";
-import isPasswordStrong  from "@/app/lib/passwordstrength";
-import { PassThrough } from "stream";
+import { isPasswordStrong } from "@/app/lib/passwordstrength";
 
 function PasswordManGrid() {
     const [data, setData] = useState<any[]>([]);

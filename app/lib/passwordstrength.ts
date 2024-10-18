@@ -4,7 +4,7 @@ const numsChars = "0123456789";
 const lowerChars = "abcdefghijklmnopqrstuvwxyz";
 const upperChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-function isPasswordStrong(password: string): number {
+export function isPasswordStrong(password: string): number {
     if (password.length < 8) {
         return 0;
     }
@@ -45,5 +45,3 @@ function isPasswordStrong(password: string): number {
         return 35;
     }
 }
-
-export default isPasswordStrong;
