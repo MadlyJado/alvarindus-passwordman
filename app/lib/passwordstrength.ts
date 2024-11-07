@@ -45,3 +45,16 @@ export function isPasswordStrong(password: string): number {
         return 35;
     }
 }
+
+export function generateRandomPassword(length: number): string {
+    const allChars = specialChars + numsChars + lowerChars + upperChars;
+    let password = "";
+
+    for (let i = 0; i < length; i++) {
+        const randomIndex = Math.floor(Math.random() * allChars.length);
+        password += allChars[randomIndex];
+    }
+
+    return password;
+
+}

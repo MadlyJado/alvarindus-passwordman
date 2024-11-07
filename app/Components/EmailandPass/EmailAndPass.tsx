@@ -35,6 +35,7 @@ function EmailAndPass(props: any) {
             <h1>Logged in: {isLoggedIn && pb.authStore.model.email}</h1>
             <Link className="btn bg-amber-600 btn-wide" href="/viewpasswords">View All Passwords</Link>
             <Link className="btn btn-accent btn-wide" href="/createnewpassword">Create new Password</Link>
+            <Link className="btn btn-primary btn-wide" href="/generatepass">Generate a new password</Link>
             <button className="btn btn-secondary" onClick={logout}>Log out</button>
         </>
     )
