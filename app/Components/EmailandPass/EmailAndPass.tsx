@@ -23,7 +23,7 @@ function EmailAndPass() {
     return (
       <>
         <h1 className="text-4xl font-extrabold mb-8 text-transparent bg-clip-text bg-gradient-to-r from-teal-200 to-lime-200">
-          {"Welcome,"+pb.authStore.model.email}
+          {"Welcome, "+pb.authStore.model.email}
         </h1>
         <div className="flex flex-col items-center gap-4">
             <Link href="/viewpasswords">
