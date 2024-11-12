@@ -2,10 +2,22 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-   <div >
-    <h1 className="text-primary text-center text-xl font-bold bg-transparent">Alvarindus Password Manager</h1>
-    <Link href="/login" className="btn btn-primary btn-wide absolute top-20 left-96">Login</Link>
-    <Link href="/register" className="btn btn-secondary btn-wide absolute top-20 right-96">Register</Link>
-   </div>
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-blue-500 to-indigo-700 text-white">
+      <h1 className="text-4xl font-extrabold mb-8 text-white bg-clip-text text-transparent bg-gradient-to-r from-teal-200 to-lime-200">
+        Alvarindus Password Manager
+      </h1>
+      <div className="flex gap-8">
+        <Link href="/login">
+          <a className="btn btn-primary btn-lg btn-wide shadow-lg hover:scale-105 transform transition-all duration-300">
+            Login
+          </a>
+        </Link>
+        <Link href="/register">
+          <a className="btn btn-secondary btn-lg btn-wide shadow-lg hover:scale-105 transform transition-all duration-300">
+            Register
+          </a>
+        </Link>
+      </div>
+    </div>
   );
 }
