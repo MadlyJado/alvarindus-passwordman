@@ -1,5 +1,5 @@
 
-const specialChars = "[]!@#$%^&*(),.?{}/_-+=`~";
+const specialChars = "!@#$%^&*,.?_-+=`~";
 const numsChars = "0123456789";
 const lowerChars = "abcdefghijklmnopqrstuvwxyz";
 const upperChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
