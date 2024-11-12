@@ -10,7 +10,7 @@ function GenerateRandomPass() {
   const [password, setPassword] = React.useState('');
 
   const generateRandomPass = (data: any) => {
-    if (data.length == null) {
+    if (data.length == "") {
       alert("Please enter a length");
       return;
     }
