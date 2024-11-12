@@ -50,7 +50,7 @@ function EmailAndPass() {
     <label className="input input-bordered w-full">
       <input type="password" placeholder="Password" {...register("password")} className="w-full p-2 rounded"/>
     </label>
-    <button type="submit" disabled={isLoading} className="btn btn-primary btn-lg btn-wide shadow-lg hover:scale-105 transform transition-all duration-300 flex">
+    <button type="submit" disabled={isLoading} className="btn btn-primary btn-lg btn-wide shadow-lg hover:scale-105 transform transition-all duration-300">
       {isLoading ? "Loading..." : "Login"}
     </button>
   </form>
