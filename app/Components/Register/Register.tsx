@@ -26,7 +26,7 @@ function Register(props: any) {
                 <label className="input input-bordered w-full">
                     <input type="password" className="grow" placeholder="Password" {...register("password")}/>
                 </label>
-                <button className="btn btn-primary btn-lg shadow-lg hover:scale-105 transform transition-all duration-300 w-full" type="submit" disabled={isLoading}>{isLoading ? "Registering": "Register"}</button>
+                <button className="btn bg-emerald-500 btn-lg shadow-lg hover:scale-105 transform transition-all duration-300 w-full" type="submit" disabled={isLoading}>{isLoading ? "Registering": "Register"}</button>
             </form>
         </div>
     )
