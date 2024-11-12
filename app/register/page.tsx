@@ -14,7 +14,7 @@ const Page: NextPage<Props> = ({}) => {
           </h1>
           <Register/>
           <Link href="/">
-          <p className="mt-6 btn btn-secondary btn-lg shadow-lg hover:scale-105 transform transition-all duration-300 w-full">
+          <p className="mt-6 btn bg-fuchsia-600 btn-lg shadow-lg hover:scale-105 transform transition-all duration-300 w-full">
             Back to Homepage
           </p>
         </Link>
