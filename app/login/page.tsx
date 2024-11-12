@@ -12,9 +12,9 @@ const Login: NextPage = () => {
         <EmailAndPass />
       </div>
       <Link href="/">
-        <a className="mt-6 btn btn-secondary btn-lg btn-wide shadow-lg hover:scale-105 transform transition-all duration-300">
+        <p className="mt-6 btn btn-secondary btn-lg btn-wide shadow-lg hover:scale-105 transform transition-all duration-300">
           Back to Homepage
-        </a>
+        </p>
       </Link>
     </div>
   )
