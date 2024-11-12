@@ -24,14 +24,14 @@ function EmailAndPass() {
       <div className="flex flex-col items-center gap-4">
         <h1>Welcome, {pb.authStore.model.email}</h1>
         <Link href="/viewpasswords">
-          <a className="btn bg-amber-600 btn-wide btn-lg shadow-lg hover:scale-105 transform transition-all duration-300">
+          <p className="btn bg-amber-600 btn-wide btn-lg shadow-lg hover:scale-105 transform transition-all duration-300">
             View All Passwords
-          </a>
+          </p>
         </Link>
         <Link href="/createnewpassword">
-          <a className="btn btn-accent btn-wide btn-lg shadow-lg hover:scale-105 transform transition-all duration-300">
+          <p className="btn btn-accent btn-wide btn-lg shadow-lg hover:scale-105 transform transition-all duration-300">
             Create New Password
-          </a>
+          </p>
         </Link>
         <button onClick={logout} className="btn btn-secondary btn-lg btn-wide shadow-lg hover:scale-105 transform transition-all duration-300">
           Log out
