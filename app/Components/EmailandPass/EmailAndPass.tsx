@@ -42,18 +42,18 @@ function EmailAndPass() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
-      {isLoading && <p className="text-center text-lg">Loading...</p>}
-      {isError && <p className="text-center text-lg bg-red-400 p-2 rounded">Invalid email or password</p>}
-      <label className="input input-bordered w-full">
-        <input type="text" placeholder="Email" {...register("email")} className="w-full p-2 rounded"/>
-      </label>
-      <label className="input input-bordered w-full">
-        <input type="password" placeholder="Password" {...register("password")} className="w-full p-2 rounded"/>
-      </label>
-      <button type="submit" disabled={isLoading} className="btn btn-primary btn-lg btn-wide shadow-lg hover:scale-105 transform transition-all duration-300">
-        {isLoading ? "Loading..." : "Login"}
-      </button>
-    </form>
+    {isLoading && <p className="text-center text-lg">Loading...</p>}
+    {isError && <p className="text-center text-lg bg-red-400 p-2 rounded">Invalid email or password</p>}
+    <label className="input input-bordered w-full">
+      <input type="text" placeholder="Email" {...register("email")} className="w-full p-2 rounded"/>
+    </label>
+    <label className="input input-bordered w-full">
+      <input type="password" placeholder="Password" {...register("password")} className="w-full p-2 rounded"/>
+    </label>
+    <button type="submit" disabled={isLoading} className="btn btn-primary btn-lg btn-wide shadow-lg hover:scale-105 transform transition-all duration-300">
+      {isLoading ? "Loading..." : "Login"}
+    </button>
+  </form>
   );
 }
 
