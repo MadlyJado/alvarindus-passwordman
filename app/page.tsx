@@ -6,7 +6,7 @@ export default function Home() {
       <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-8 text-white bg-clip-text text-transparent bg-gradient-to-r from-teal-200 to-lime-200 text-center">
         Alvarindus Password Manager
       </h1>
-      <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 w-full sm:w-auto">
+      <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 w-full sm:w-auto items-center" >
         <Link href="/login">
           <p className="btn btn-primary btn-lg sm:btn-wide shadow-lg hover:scale-105 transform transition-all duration-300 text-center">
             Login
