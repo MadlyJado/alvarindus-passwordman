@@ -1,16 +1,21 @@
 import { NextPage } from 'next'
 import EmailAndPass from '../Components/EmailandPass/EmailAndPass'
 import Link from 'next/link'
+import pb from '../lib/pocketbase';
 
-interface Props {}
-
-const Login: NextPage<Props> = ({}) => {
+const Login: NextPage = () => {
   return (
-    <div >
-        <h1 className="text-secondary text-center text-xl bg-transparent">Login Page</h1>
-        <EmailAndPass/>
-        <Link href="/" className="btn btn-secondary">Back to homepage</Link>
-    </div>
+    <body className="bg-gradient-to-b from-orange-500 to-red-700 text-white">
+        <div className="min-h-screen flex flex-col items-center justify-center ">
+        <EmailAndPass />
+        <Link href="/">
+          <p className="mt-6 btn btn-secondary btn-lg btn-wide shadow-lg hover:scale-105 transform transition-all duration-300">
+            Back to Homepage
+          </p>
+        </Link>
+      </div>
+    </body>
+    
   )
 }
 

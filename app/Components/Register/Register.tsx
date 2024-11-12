@@ -16,23 +16,19 @@ function Register(props: any) {
 
 
     return (
-    
-        <>
-        
-            {isLoading && <p>Loading...</p>}
-            {isError && <p className="bg-red-400">Invalid email or password</p>}
-
-            <form onSubmit={handleSubmit(onSubmit)}>
-                <label className="input input-bordered flex items-center gap-2">
+        <div className="w-full max-w-md p-6 bg-white rounded-lg shadow-lg items-center">
+            {isLoading && <p className="text-center text-lg">Loading...</p>}
+            {isError && <p className="text-center text-lg bg-red-400 p-2 rounded">Invalid email or password</p>}
+            <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
+                <label className="input input-bordered w-full">
                     <input type="text" className="grow" placeholder="Email" {...register("email")}/>
                 </label>
-                <label className="input input-bordered flex items-center gap-2">
+                <label className="input input-bordered w-full">
                     <input type="password" className="grow" placeholder="Password" {...register("password")}/>
                 </label>
-                <button className="btn btn-primary" type="submit" disabled={isLoading}>{isLoading ? "Registering": "Register"}</button>
+                <button className="btn bg-emerald-500 btn-lg shadow-lg hover:scale-105 transform transition-all duration-300 w-full" type="submit" disabled={isLoading}>{isLoading ? "Registering": "Register"}</button>
             </form>
-
-        </>
+        </div>
     )
 }
 

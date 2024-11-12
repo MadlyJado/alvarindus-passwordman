@@ -23,14 +23,14 @@ function PasswordManCard(props: { name: string, email: string, password: string,
 
     return (
         <>
-            <div className="card">
-                <h1 className="card-title text-accent font-bold text-xl">{props.name}</h1>
-                <p className="text-amber-500 text-base">URL: {props.url}</p>
-                <p className="text-amber-500 text-base">Email: {props.email}</p>
-                <p className="text-lime-700 text-base">Password: {props.password}</p>
-                <p className="text-blue-500 text-base">Password Strength: {props.passwordStrength}</p>
-                <button className="btn btn-accent btn-wide" onClick={CopyToClipBoard}>Click here to copy password of {props.email}</button>
-                <button className="btn btn-accent btn-wide" onClick={deletePassword}>Click here to delete password entry</button>
+            <div className="card flex flex-col gap-x-20">
+                <h1 className="card-title text-accent font-bold text-xl w-full">{props.name}</h1>
+                <p className="text-amber-500 text-base w-full">URL: {props.url}</p>
+                <p className="text-amber-500 text-base w-full">Email: {props.email}</p>
+                <p className="text-lime-700 text-base w-full">Password: {props.password}</p>
+                <p className="text-blue-500 text-base w-full">Password Strength: {props.passwordStrength}</p>
+                <button className="btn btn-accent btn-md w-full" onClick={CopyToClipBoard}>Click here to copy password of {props.email}</button>
+                <button className="btn btn-accent btn-md w-full" onClick={deletePassword}>Click here to delete password entry</button>
             </div>
         </>
     );
