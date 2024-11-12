@@ -14,7 +14,7 @@ const Login: NextPage<Props> = ({}) => {
           Current Saved Logins
         </h1>
         <div className="w-full max-w-md p-6 bg-white rounded-box shadow-lg items-center">
-          <PasswordManGrid /> || No saved passwords found
+          <PasswordManGrid />
         </div>
         <Link href="/login" className="btn bg-fuchsia-900 btn-lg shadow-lg hover:scale-105 transform transition-all duration-300 w-full">Return to Login Screen</Link>
     </div>
