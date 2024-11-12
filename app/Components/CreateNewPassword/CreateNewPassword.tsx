@@ -16,8 +16,8 @@ function CreateNewPassword() {
   }
 
   return (
-    <div className="text-4xl font-extrabold mb-8 text-transparent bg-clip-text bg-gradient-to-r from-teal-200 to-lime-200">
-        <form onSubmit={handleSubmit(onSubmit)}>
+    <div className="w-full max-w-md p-6 bg-white rounded-lg shadow-lg items-center">
+        <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
         <label className="input input-bordered w-full">
             <input type="text" className="grow" placeholder="Name" {...register("name")}/>
         </label>
