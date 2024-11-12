@@ -13,7 +13,7 @@ const Login: NextPage<Props> = ({}) => {
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-8 text-white bg-clip-text text-transparent bg-gradient-to-r from-teal-200 to-lime-200 text-center">
           Current Saved Logins
         </h1>
-        <div className="w-full max-w-md p-6 bg-white rounded-lg shadow-lg items-center">
+        <div className="w-full max-w-md p-6 bg-white rounded-box shadow-lg items-center">
           <PasswordManGrid />
         </div>
         <Link href="/login" className="btn bg-fuchsia-900 btn-lg shadow-lg hover:scale-105 transform transition-all duration-300 w-full">Return to Login Screen</Link>
