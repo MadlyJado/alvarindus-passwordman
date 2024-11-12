@@ -23,7 +23,7 @@ function PasswordManCard(props: { name: string, email: string, password: string,
 
     return (
         <>
-            <div className="card flex flex-col gap-x-20 bg-white">
+            <div className="card flex flex-col gap-x-20">
                 <h1 className="card-title text-accent font-bold text-xl w-full">{props.name}</h1>
                 <p className="text-amber-500 text-base w-full">URL: {props.url}</p>
                 <p className="text-amber-500 text-base w-full">Email: {props.email}</p>
