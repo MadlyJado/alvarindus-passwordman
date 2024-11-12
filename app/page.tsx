@@ -13,7 +13,7 @@ export default function Home() {
           </p>
         </Link>
         <Link href="/register">
-          <p className="btn btn-secondary btn-lg sm:btn-wide shadow-lg hover:scale-105 transform transition-all duration-300 text-center">
+          <p className="btn bg-emerald-500 btn-lg sm:btn-wide shadow-lg hover:scale-105 transform transition-all duration-300 text-center">
             Register
           </p>
         </Link>
