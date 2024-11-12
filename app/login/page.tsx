@@ -6,7 +6,7 @@ interface Props {}
 
 const Login: NextPage<Props> = ({}) => {
   return (
-    <div >
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-orange-500 to-red-700 text-white" >
         <h1 className="text-secondary text-center text-xl bg-transparent">Login Page</h1>
         <EmailAndPass/>
         <Link href="/" className="btn btn-secondary">Back to homepage</Link>
