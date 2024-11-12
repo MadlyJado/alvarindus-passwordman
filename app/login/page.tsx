@@ -6,7 +6,7 @@ const Login: NextPage = () => {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-orange-500 to-red-700 text-white">
       <h1 className="text-4xl font-extrabold mb-8 text-transparent bg-clip-text bg-gradient-to-r from-teal-200 to-lime-200">
-        Login Page
+        {pb.authStore.model.email ? `Welcome, ${pb.authStore.model.email}` : "Login Page"}
       </h1>
       <EmailAndPass />
       <Link href="/">

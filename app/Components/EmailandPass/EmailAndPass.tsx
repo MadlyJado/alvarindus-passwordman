@@ -22,7 +22,6 @@ function EmailAndPass() {
   if (isLoggedIn) {
     return (
       <div className="flex flex-col items-center gap-4">
-          <h1>Welcome, {pb.authStore.model.email}</h1>
           <Link href="/viewpasswords">
             <p className="btn bg-amber-600 btn-wide btn-lg shadow-lg hover:scale-105 transform transition-all duration-300">
               View All Passwords
