@@ -32,11 +32,11 @@ function EmailAndPass() {
               </p>
             </Link>
             <Link href="/createnewpassword">
-              <p className="btn btn-accent btn-wide btn-lg shadow-lg hover:scale-105 transform transition-all duration-300">
+              <p className="btn bg-orange-600 btn-wide btn-lg shadow-lg hover:scale-105 transform transition-all duration-300">
                 Create New Password
               </p>
             </Link>
-            <button onClick={logout} className="btn btn-secondary btn-lg btn-wide shadow-lg hover:scale-105 transform transition-all duration-300">
+            <button onClick={logout} className="btn bg-red-400 btn-lg btn-wide shadow-lg hover:scale-105 transform transition-all duration-300">
               Log out
             </button>
           </div>
@@ -46,24 +46,24 @@ function EmailAndPass() {
 
   return (
     <>
-    <h1 className="text-4xl font-extrabold mb-8 text-transparent bg-clip-text bg-gradient-to-r from-teal-200 to-lime-200">
-          Login Page
-        </h1>
-    <div className="w-full max-w-md p-6 bg-white rounded-lg shadow-lg items-center">
-      <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
-      {isLoading && <p className="text-center text-lg">Loading...</p>}
-      {isError && <p className="text-center text-lg bg-red-400 p-2 rounded">Invalid email or password</p>}
-      <label className="input input-bordered w-full">
-        <input type="text" placeholder="Email" {...register("email")} className="w-full p-2 rounded"/>
-      </label>
-      <label className="input input-bordered w-full">
-        <input type="password" placeholder="Password" {...register("password")} className="w-full p-2 rounded"/>
-      </label>
-      <button type="submit" disabled={isLoading} className="btn btn-primary btn-lg shadow-lg hover:scale-105 transform transition-all duration-300 w-full">
-        {isLoading ? "Loading..." : "Login"}
-      </button>
-    </form>
-  </div>
+      <h1 className="text-4xl font-extrabold mb-8 text-transparent bg-clip-text bg-gradient-to-r from-teal-200 to-lime-200">
+            Login Page
+      </h1>
+      <div className="w-full max-w-md p-6 bg-white rounded-lg shadow-lg items-center">
+        <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
+        {isLoading && <p className="text-center text-lg">Loading...</p>}
+        {isError && <p className="text-center text-lg bg-red-400 p-2 rounded">Invalid email or password</p>}
+        <label className="input input-bordered w-full">
+          <input type="text" placeholder="Email" {...register("email")} className="w-full p-2 rounded"/>
+        </label>
+        <label className="input input-bordered w-full">
+          <input type="password" placeholder="Password" {...register("password")} className="w-full p-2 rounded"/>
+        </label>
+        <button type="submit" disabled={isLoading} className="btn btn-primary btn-lg shadow-lg hover:scale-105 transform transition-all duration-300 w-full">
+          {isLoading ? "Loading..." : "Login"}
+        </button>
+      </form>
+    </div>
   </>
   );
 }
