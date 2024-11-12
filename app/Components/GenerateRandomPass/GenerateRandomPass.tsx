@@ -26,7 +26,7 @@ function GenerateRandomPass() {
     <>
       <form onSubmit={handleSubmit(generateRandomPass)}>
             <label className="input input-bordered w-full">
-                <input className="grow" placeholder="Length of desired password" {...register("length")} />
+                <input className="grow w-full p-2 rounded" placeholder="Length of desired password" {...register("length")} />
             </label>
             <button className="btn bg-indigo-700 btn-lg shadow-lg hover:scale-105 transform transition-all duration-300 w-full" type="submit">Generate Random Password</button>
         </form>
