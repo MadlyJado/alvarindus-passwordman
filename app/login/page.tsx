@@ -8,7 +8,7 @@ const Login: NextPage = () => {
       <h1 className="text-4xl font-extrabold mb-8 text-transparent bg-clip-text bg-gradient-to-r from-teal-200 to-lime-200">
         Login Page
       </h1>
-      <div className="w-full max-w-md p-6 bg-white rounded-lg shadow-lg">
+      <div className="w-full max-w-md p-6 bg-white rounded-lg shadow-lg items-center">
         <EmailAndPass />
       </div>
       <Link href="/">
