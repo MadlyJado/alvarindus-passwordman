@@ -40,7 +40,7 @@ function PasswordManGrid() {
     }
 
     return (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 bg-white">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {data.map((item) => {
                 const decryptedPassword = handleDecrypt(item.password);
                 return (
