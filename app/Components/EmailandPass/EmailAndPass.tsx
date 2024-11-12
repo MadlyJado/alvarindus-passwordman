@@ -46,10 +46,10 @@ function EmailAndPass(props: any) {
         {isError && <p className="bg-red-400">Invalid email or password</p>}
        
         <form onSubmit={handleSubmit(onSubmit)}>
-            <label className="input input-bordered flex items-center gap-2">
+            <label className="input input-bordered  gap-2">
                 <input type="text" className="grow" placeholder="Email" {...register("email")}/>
             </label>
-            <label className="input input-bordered flex items-center gap-2">
+            <label className="input input-bordered  gap-2">
                 <input type="password" className="grow" placeholder="Password" {...register("password")}/>
             </label>
             <button className="btn btn-primary btn-lg btn-wide shadow-lg hover:scale-105 transform transition-all duration-300" type="submit" disabled={isLoading}>{isLoading ? "Loading": "Login"}</button>
