@@ -1,6 +1,7 @@
 import { NextPage } from 'next'
 import EmailAndPass from '../Components/EmailandPass/EmailAndPass'
 import Link from 'next/link'
+import pb from '../lib/pocketbase';
 
 const Login: NextPage = () => {
   return (
