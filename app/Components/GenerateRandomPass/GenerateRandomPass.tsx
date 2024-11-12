@@ -24,7 +24,7 @@ function GenerateRandomPass() {
 
   return (
     <>
-      <form onSubmit={handleSubmit(generateRandomPass)}>
+      <form className="flex flex-col gap-4" onSubmit={handleSubmit(generateRandomPass)}>
             <label className="input input-bordered w-full">
                 <input className="w-full p-2 rounded" placeholder="Length of desired password" {...register("length")} />
             </label>
