@@ -33,9 +33,9 @@ function EmailAndPass(props: any) {
     return (
         <>
             <h1>Logged in: {isLoggedIn && pb.authStore.model.email}</h1>
-            <Link className="btn bg-amber-600 btn-wide" href="/viewpasswords">View All Passwords</Link>
-            <Link className="btn btn-accent btn-wide" href="/createnewpassword">Create new Password</Link>
-            <button className="btn btn-secondary" onClick={logout}>Log out</button>
+            <Link className="btn bg-amber-600 btn-wide btn-lg shadow-lg hover:scale-105 transform transition-all duration-300" href="/viewpasswords">View All Passwords</Link>
+            <Link className="btn btn-accent btn-wide btn-lg shadow-lg hover:scale-105 transform transition-all duration-300" href="/createnewpassword">Create new Password</Link>
+            <button className="btn btn-secondary btn-lg btn-wide shadow-lg hover:scale-105 transform transition-all duration-300" onClick={logout}>Log out</button>
         </>
     )
   }
@@ -52,7 +52,7 @@ function EmailAndPass(props: any) {
             <label className="input input-bordered flex items-center gap-2">
                 <input type="password" className="grow" placeholder="Password" {...register("password")}/>
             </label>
-            <button className="btn btn-primary" type="submit" disabled={isLoading}>{isLoading ? "Loading": "Login"}</button>
+            <button className="btn btn-primary btn-lg btn-wide shadow-lg hover:scale-105 transform transition-all duration-300" type="submit" disabled={isLoading}>{isLoading ? "Loading": "Login"}</button>
         </form>
     </>
         
