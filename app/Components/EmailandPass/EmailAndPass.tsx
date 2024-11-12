@@ -21,25 +21,34 @@ function EmailAndPass() {
 
   if (isLoggedIn) {
     return (
-      <div className="flex flex-col items-center gap-4">
-          <Link href="/viewpasswords">
-            <p className="btn bg-amber-600 btn-wide btn-lg shadow-lg hover:scale-105 transform transition-all duration-300">
-              View All Passwords
-            </p>
-          </Link>
-          <Link href="/createnewpassword">
-            <p className="btn btn-accent btn-wide btn-lg shadow-lg hover:scale-105 transform transition-all duration-300">
-              Create New Password
-            </p>
-          </Link>
-          <button onClick={logout} className="btn btn-secondary btn-lg btn-wide shadow-lg hover:scale-105 transform transition-all duration-300">
-            Log out
-          </button>
-        </div>
+      <>
+        <h1 className="text-4xl font-extrabold mb-8 text-transparent bg-clip-text bg-gradient-to-r from-teal-200 to-lime-200">
+          {"Welcome,"+pb.authStore.model.email}
+        </h1>
+        <div className="flex flex-col items-center gap-4">
+            <Link href="/viewpasswords">
+              <p className="btn bg-amber-600 btn-wide btn-lg shadow-lg hover:scale-105 transform transition-all duration-300">
+                View All Passwords
+              </p>
+            </Link>
+            <Link href="/createnewpassword">
+              <p className="btn btn-accent btn-wide btn-lg shadow-lg hover:scale-105 transform transition-all duration-300">
+                Create New Password
+              </p>
+            </Link>
+            <button onClick={logout} className="btn btn-secondary btn-lg btn-wide shadow-lg hover:scale-105 transform transition-all duration-300">
+              Log out
+            </button>
+          </div>
+        </>
     );
   }
 
   return (
+    <>
+    <h1 className="text-4xl font-extrabold mb-8 text-transparent bg-clip-text bg-gradient-to-r from-teal-200 to-lime-200">
+          Login Page
+        </h1>
     <div className="w-full max-w-md p-6 bg-white rounded-lg shadow-lg items-center">
       <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
       {isLoading && <p className="text-center text-lg">Loading...</p>}
@@ -55,6 +64,7 @@ function EmailAndPass() {
       </button>
     </form>
   </div>
+  </>
   );
 }
 
