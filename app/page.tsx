@@ -8,14 +8,14 @@ export default function Home() {
       </h1>
       <div className="flex gap-8">
         <Link href="/login">
-          <a className="btn btn-primary btn-lg btn-wide shadow-lg hover:scale-105 transform transition-all duration-300">
+          <p className="btn btn-primary btn-lg btn-wide shadow-lg hover:scale-105 transform transition-all duration-300">
             Login
-          </a>
+          </p>
         </Link>
         <Link href="/register">
-          <a className="btn btn-secondary btn-lg btn-wide shadow-lg hover:scale-105 transform transition-all duration-300">
+          <p className="btn btn-secondary btn-lg btn-wide shadow-lg hover:scale-105 transform transition-all duration-300">
             Register
-          </a>
+          </p>
         </Link>
       </div>
     </div>
