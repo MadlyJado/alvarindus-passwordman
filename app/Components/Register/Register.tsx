@@ -19,7 +19,7 @@ function Register(props: any) {
         <div className="w-full max-w-md p-6 bg-white rounded-lg shadow-lg items-center">
             {isLoading && <p className="text-center text-lg">Loading...</p>}
             {isError && <p className="text-center text-lg bg-red-400 p-2 rounded">Invalid email or password</p>}
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
                 <label className="input input-bordered w-full">
                     <input type="text" className="grow" placeholder="Email" {...register("email")}/>
                 </label>
