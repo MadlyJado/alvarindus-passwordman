@@ -2,16 +2,12 @@
 
 import pb from "@/app/lib/pocketbase";
 import { useEffect, useState } from "react";
-import { decryptPassword } from "@/utils/crypto";
+import { decryptPassword } from "@/app/lib/encryption";
 import PasswordManCard from "../PasswordManCard/PasswordManCard";
 import { isPasswordStrong } from "@/app/lib/passwordstrength";
 
 function PasswordManGrid() {
     const [data, setData] = useState<any[]>([]);
-    const [error, setError] = useState<string | null>(null);
-
-    // Fetch the passphrase from session storage
-    const passphrase = typeof window !== 'undefined' ? sessionStorage.getItem('userPassphrase') : null;
 
     useEffect(() => {
         const fetchData = async () => {
@@ -22,7 +18,6 @@ function PasswordManGrid() {
                     setData(records);
                 } catch (error) {
                     console.error("Error fetching data:", error);
-                    setError("Failed to fetch data");
                 }
             }
         };
@@ -32,26 +27,16 @@ function PasswordManGrid() {
 
     const handleDelete = (id: string) => {
         setData(data.filter((item) => item.id !== id));
-    };
+    }
 
     function handleDecrypt(password: string) {
-        if (!passphrase) {
-            setError("Passphrase is required to decrypt passwords");
-            return "";
-        }
-
         try {
-            const decryptedPass = decryptPassword(password, passphrase);
+            const decryptedPass = decryptPassword(password);
             return decryptedPass;
         } catch (error) {
             console.error("Error decrypting password:", error);
-            setError("Failed to decrypt password");
-            return "";
+            return ""; // Return an empty string or handle the error as needed
         }
-    }
-
-    if (error) {
-        return <p className="text-red-500">{error}</p>;
     }
 
     return (
