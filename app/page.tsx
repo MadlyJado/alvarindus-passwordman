@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function Home() {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-blue-950 to-indigo-700 text-white p-4">
-      <div className="grid grid-cols-6 absolute size-min opacity-30">
+      <div className="grid grid-cols-6 absolute size-9 opacity-30">
         <img href="./lib/pattern.png" alt="Pattern"></img>
         <img href="./lib/pattern.png" alt="Pattern"></img>
         <img href="./lib/pattern.png" alt="Pattern"></img>
