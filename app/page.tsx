@@ -4,17 +4,16 @@ export default function Home() {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-blue-950 to-indigo-700 text-white p-4">
       <div className="grid grid-cols-6 absolute size-min opacity-30">
-        <img href="/app/lib/pattern.png" alt="Pattern"></img>
-        <img href="/app/lib/pattern.png" alt="Pattern"></img>
-        <img href="/app/lib/pattern.png" alt="Pattern"></img>
-        <img href="/app/lib/pattern.png" alt="Pattern"></img>
-        <img href="/app/lib/pattern.png" alt="Pattern"></img>
-        <img href="/app/lib/pattern.png" alt="Pattern"></img>
-        <img href="/app/lib/pattern.png" alt="Pattern"></img>
-        <img href="/app/lib/pattern.png" alt="Pattern"></img>
-        <img href="/app/lib/pattern.png" alt="Pattern"></img>
-        <img href="/app/lib/pattern.png" alt="Pattern"></img>
-        <img href="/app/lib/pattern.png" alt="Pattern"></img>
+        <img href="./lib/pattern.png" alt="Pattern"></img>
+        <img href="./lib/pattern.png" alt="Pattern"></img>
+        <img href="./lib/pattern.png" alt="Pattern"></img>
+        <img href="./lib/pattern.png" alt="Pattern"></img>
+        <img href="./lib/pattern.png" alt="Pattern"></img>
+        <img href="./lib/pattern.png" alt="Pattern"></img>
+        <img href="./lib/pattern.png" alt="Pattern"></img>
+        <img href="./lib/pattern.png" alt="Pattern"></img>
+        <img href="./lib/pattern.png" alt="Pattern"></img>
+        <img href="./lib/pattern.png" alt="Pattern"></img>
       </div>
       
       <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-8 text-white bg-clip-text text-transparent bg-gradient-to-r from-teal-200 to-lime-200 text-center">
