@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function Home() {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-blue-950 to-indigo-700 text-white p-4">
-      <div className="w-screen h-screen grid-cols-3 md:grid-cols-5 lg:grid-cols-6 gap-2 bg-[url('lib/pattern.png')] bg-repeat">
+      <div className="w-screen h-screen grid-cols-3 md:grid-cols-5 lg:grid-cols-6 gap-2 bg-[url('lib/pattern.png')] bg-repeat size-12 absolute opacity-30">
           
         
       </div>
