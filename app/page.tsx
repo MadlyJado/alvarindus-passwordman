@@ -5,7 +5,7 @@ import pattern from "@/app/lib/pattern.png";
 export default function Home() {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-blue-950 to-indigo-700 text-white p-4">
-      <div className="grid grid-cols-6 absolute size-96">
+      <div className="grid grid-cols-12 absolute size-96">
         <Image src={pattern} alt="Pattern" width="80" height="80"></Image>
         <Image src={pattern} alt="Pattern" width="80" height="80"></Image>
         <Image src={pattern} alt="Pattern" width="80" height="80"></Image>
