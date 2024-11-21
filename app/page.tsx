@@ -13,7 +13,47 @@ export default function Home() {
         <Image src={pattern} alt="Pattern" width="20" height="20"></Image>    
         <Image src={pattern} alt="Pattern" width="20" height="20"></Image>    
         <Image src={pattern} alt="Pattern" width="20" height="20"></Image>    
-        <Image src={pattern} alt="Pattern" width="20" height="20"></Image>          
+        <Image src={pattern} alt="Pattern" width="20" height="20"></Image>
+        <Image src={pattern} alt="Pattern" width="20" height="20"></Image>
+        <Image src={pattern} alt="Pattern" width="20" height="20"></Image>    
+        <Image src={pattern} alt="Pattern" width="20" height="20"></Image>    
+        <Image src={pattern} alt="Pattern" width="20" height="20"></Image>    
+        <Image src={pattern} alt="Pattern" width="20" height="20"></Image>    
+        <Image src={pattern} alt="Pattern" width="20" height="20"></Image>    
+        <Image src={pattern} alt="Pattern" width="20" height="20"></Image>    
+        <Image src={pattern} alt="Pattern" width="20" height="20"></Image>     
+        <Image src={pattern} alt="Pattern" width="20" height="20"></Image>
+        <Image src={pattern} alt="Pattern" width="20" height="20"></Image>    
+        <Image src={pattern} alt="Pattern" width="20" height="20"></Image>    
+        <Image src={pattern} alt="Pattern" width="20" height="20"></Image>    
+        <Image src={pattern} alt="Pattern" width="20" height="20"></Image>    
+        <Image src={pattern} alt="Pattern" width="20" height="20"></Image>    
+        <Image src={pattern} alt="Pattern" width="20" height="20"></Image>    
+        <Image src={pattern} alt="Pattern" width="20" height="20"></Image>     
+        <Image src={pattern} alt="Pattern" width="20" height="20"></Image>
+        <Image src={pattern} alt="Pattern" width="20" height="20"></Image>    
+        <Image src={pattern} alt="Pattern" width="20" height="20"></Image>    
+        <Image src={pattern} alt="Pattern" width="20" height="20"></Image>    
+        <Image src={pattern} alt="Pattern" width="20" height="20"></Image>    
+        <Image src={pattern} alt="Pattern" width="20" height="20"></Image>    
+        <Image src={pattern} alt="Pattern" width="20" height="20"></Image>    
+        <Image src={pattern} alt="Pattern" width="20" height="20"></Image>     
+        <Image src={pattern} alt="Pattern" width="20" height="20"></Image>
+        <Image src={pattern} alt="Pattern" width="20" height="20"></Image>    
+        <Image src={pattern} alt="Pattern" width="20" height="20"></Image>    
+        <Image src={pattern} alt="Pattern" width="20" height="20"></Image>    
+        <Image src={pattern} alt="Pattern" width="20" height="20"></Image>    
+        <Image src={pattern} alt="Pattern" width="20" height="20"></Image>    
+        <Image src={pattern} alt="Pattern" width="20" height="20"></Image>    
+        <Image src={pattern} alt="Pattern" width="20" height="20"></Image>     
+        <Image src={pattern} alt="Pattern" width="20" height="20"></Image>
+        <Image src={pattern} alt="Pattern" width="20" height="20"></Image>    
+        <Image src={pattern} alt="Pattern" width="20" height="20"></Image>    
+        <Image src={pattern} alt="Pattern" width="20" height="20"></Image>    
+        <Image src={pattern} alt="Pattern" width="20" height="20"></Image>    
+        <Image src={pattern} alt="Pattern" width="20" height="20"></Image>    
+        <Image src={pattern} alt="Pattern" width="20" height="20"></Image>    
+        <Image src={pattern} alt="Pattern" width="20" height="20"></Image>               
       </div>
       
       <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-8 text-white bg-clip-text text-transparent bg-gradient-to-r from-teal-200 to-lime-200 text-center">
